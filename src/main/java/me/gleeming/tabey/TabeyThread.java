@@ -61,18 +61,12 @@ public class TabeyThread {
             tabeyPlayer.getPreviousElements().put(i, tabElement);
 
             if(!legacy) {
-                System.out.println("not legacy");
-
-                System.out.println(tabElement.getSkin().equals(previousElement.getSkin()) + " skin matches ");
-                System.out.println(tabElement.getGameMode().equals(previousElement.getGameMode()) + " gamemode matches");
                 if(!tabElement.getSkin().matches(previousElement.getSkin()) || !tabElement.getGameMode().equals(previousElement.getGameMode())) {
                     tabeyPlayer.refresh(player, data, tabElement.getSkin());
-                    System.out.println("updating skin");
                 }
 
                 if(!tabElement.getText().equals(previousElement.getText())) {
                     new RPacketInfo("UPDATE_DISPLAY_NAME", data).sendPacket(player);
-                    System.out.println("updating display name");
                 }
 
                 return;
