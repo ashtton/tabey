@@ -4,6 +4,7 @@ This is a lightweight tab library supporting the minecraft versions and clients 
 * Only sends update packets when changed which helps players with high latency
 * Easily changeable skin by just providing player object, uuid, name, or skin signature.
 * Editable latency (set to 0 to make it not display on most pvp clients)
+* Ran on a completely separate thread and has 0% impact on bukkit thread
 ### Command Example
 This example shows you the basics of using the api
 ```java
