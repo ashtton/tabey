@@ -73,7 +73,7 @@ public class TabeyThread {
             }
 
             if(!tabElement.getText().equals(previousElement.getText())) {
-                Map.Entry<String, String> entry = TeamHandler.splitString(tabElement.getText());
+                Map.Entry<String, String> entry = TeamHandler.splitString(ChatColor.translateAlternateColorCodes('&', tabElement.getText()));
                 new RPacketTeam(2, new RScoreboardTeam((i < 10 ? "0" : "") + i, entry.getKey(), entry.getValue(), Collections.singletonList(gameProfile.getName())))
                         .sendPacket(player);
             }
