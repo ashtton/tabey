@@ -1,13 +1,14 @@
 package me.gleeming.tabey.player.version.impl;
 
 import me.gleeming.tabey.player.version.VersionHandler;
+import net.athenstudios.straw.api.StrawAPI;
 import org.bukkit.entity.Player;
-import protocolsupport.api.ProtocolSupportAPI;
 
-public class ProtocolSupportHandler extends VersionHandler {
+public class StrawHandler extends VersionHandler {
+
     @Override
     public boolean isLegacy(Player player) {
-        return ProtocolSupportAPI.getProtocolVersion(player).getId() < 47;
+        return StrawAPI.isLegacy(player);
     }
 
     @Override

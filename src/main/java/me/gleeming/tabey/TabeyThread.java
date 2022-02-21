@@ -3,6 +3,7 @@ package me.gleeming.tabey;
 import lombok.SneakyThrows;
 import me.gleeming.tabey.player.TabeyPlayer;
 import me.gleeming.tabey.player.version.VersionHandler;
+import me.gleeming.tabey.player.version.impl.ProtocolSupportHandler;
 import me.gleeming.tabey.reflection.impl.*;
 import me.gleeming.tabey.tab.TabElement;
 import me.gleeming.tabey.team.TeamHandler;
@@ -39,7 +40,11 @@ public class TabeyThread {
         HashMap<Integer, TabElement> elements = new HashMap<>();
         boolean legacy = VersionHandler.getInstance().isLegacy(player);
 
-        if (legacy) Tabey.getInstance().getTabAdapter().getLegacy(player).forEach(tabElement -> elements.put(
+        if(!TabeyPlayer.getPlayers().containsKey(player.getUniqueId()))
+            return;
+
+        if (legacy)
+            Tabey.getInstance().getTabAdapter().getLegacy(player).forEach(tabElement -> elements.put(
                 tabElement.getSlot() * 3 + tabElement.getColumn().getIndex(), tabElement
         ));
         else Tabey.getInstance().getTabAdapter().getDisplay(player).forEach(tabElement -> elements.put(
@@ -78,7 +83,6 @@ public class TabeyThread {
                         .sendPacket(player);
             }
         });
-
 
         if(!legacy) {
             new RPacketHeaderFooter(

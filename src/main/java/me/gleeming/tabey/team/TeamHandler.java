@@ -15,7 +15,7 @@ public class TeamHandler {
     static {
         AtomicInteger slot = new AtomicInteger(0);
         for(ChatColor firstColor : ChatColor.values()) for(ChatColor secondColor : ChatColor.values()) for(ChatColor thirdColor : ChatColor.values())
-                    slotNames.put(slot.getAndIncrement(), firstColor.toString() + secondColor.toString() + thirdColor);
+                    slotNames.put(slot.getAndIncrement(), firstColor.toString() + secondColor.toString() + thirdColor.toString() + ChatColor.RESET);
     }
 
     /**

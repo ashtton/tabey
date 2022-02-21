@@ -26,7 +26,7 @@ public class TabeyPlayer {
 
             new RPacketInfo("ADD_PLAYER", new RPlayerInfoData(
                     gameProfile,
-                    "",
+                    gameProfile.getName(),
                     GameMode.CREATIVE,
                     0
             )).sendPacket(player);

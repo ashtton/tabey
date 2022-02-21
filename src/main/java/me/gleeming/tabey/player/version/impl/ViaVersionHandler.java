@@ -11,4 +11,9 @@ public class ViaVersionHandler extends VersionHandler {
     public boolean isLegacy(Player player) {
         return Via.getAPI().getPlayerVersion(player) < 47;
     }
+
+    @Override
+    public boolean isNative17() {
+        return false;
+    }
 }
